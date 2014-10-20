@@ -134,21 +134,6 @@ HRESULT cap::getDdata()
 HRESULT cap::getSdata()
 {
 
-	// Sensor
-	IKinectSensor* pSensor;
-	HRESULT hResult = S_OK;
-	hResult = GetDefaultKinectSensor( &pSensor );
-	if( FAILED( hResult ) ){
-		std::cerr << "Error : GetDefaultKinectSensor" << std::endl;
-		return -1;
-	}
-
-	hResult = pSensor->Open( );
-	if( FAILED( hResult ) ){
-		std::cerr << "Error : IKinectSensor::Open()" << std::endl;
-		return -1;
-	}
-
 	// Source
 	IColorFrameSource* pColorSource;
 	hResult = pSensor->get_ColorFrameSource( &pColorSource );
