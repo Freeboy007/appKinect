@@ -135,14 +135,13 @@ HRESULT cap::getSdata()
 {
 
 	// Source
-	IColorFrameSource* pColorSource;
 	hResult = pSensor->get_ColorFrameSource( &pColorSource );
 	if( FAILED( hResult ) ){
 		std::cerr << "Error : IKinectSensor::get_ColorFrameSource()" << std::endl;
 		return -1;
 	}
 
-	IBodyFrameSource* pBodySource;
+
 	hResult = pSensor->get_BodyFrameSource( &pBodySource );
 	if( FAILED( hResult ) ){
 		std::cerr << "Error : IKinectSensor::get_BodyFrameSource()" << std::endl;
@@ -150,14 +149,14 @@ HRESULT cap::getSdata()
 	}
 
 	// Reader
-	IColorFrameReader* pColorReader;
+
 	hResult = pColorSource->OpenReader( &pColorReader );
 	if( FAILED( hResult ) ){
 		std::cerr << "Error : IColorFrameSource::OpenReader()" << std::endl;
 		return -1;
 	}
 
-	IBodyFrameReader* pBodyReader;
+
 	hResult = pBodySource->OpenReader( &pBodyReader );
 	if( FAILED( hResult ) ){
 		std::cerr << "Error : IBodyFrameSource::OpenReader()" << std::endl;
